@@ -149,3 +149,41 @@ footer .col a:hover{color:#fff}
 .ccard h3{font-size:17px;color:var(--navy);margin:8px 0 4px}
 .ccard p,.ccard a{font-size:15px;color:var(--muted)}
 .ccard a{color:var(--teal);text-decoration:none;font-weight:600}
+
+/* ===== enhanced landing sections ===== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{text-align:center;padding:10px}
+.stat .n{font-size:34px;font-weight:800;color:var(--teal-l);letter-spacing:-1px}
+.stat .l{font-size:13px;color:#cbd5e1;margin-top:2px}
+
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+@media(max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.why{grid-template-columns:1fr}}
+.wcard{border:1px solid var(--line);border-radius:14px;padding:22px;background:#fff;border-top:3px solid var(--teal)}
+.wcard .ic{font-size:24px}
+.wcard h3{font-size:16px;color:var(--navy);margin:8px 0 4px;font-weight:700}
+.wcard p{font-size:13.5px;color:var(--muted)}
+
+.deep{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;margin-top:46px}
+.deep.rev .vis{order:-1}
+@media(max-width:820px){.deep{grid-template-columns:1fr;gap:22px}.deep.rev .vis{order:0}}
+.deep .kick{color:var(--teal);font-weight:800;font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.deep h3{font-size:26px;color:var(--navy);font-weight:800;letter-spacing:-.6px;margin-top:6px}
+.deep p{font-size:15px;color:var(--muted);margin-top:10px}
+.deep ul{list-style:none;margin-top:14px}
+.deep li{font-size:14.5px;padding:5px 0 5px 24px;position:relative;color:var(--ink)}
+.deep li:before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:800}
+.deep .vis{background:linear-gradient(160deg,#f0fdfa,#eef2ff);border:1px solid var(--line);border-radius:16px;min-height:210px;display:flex;align-items:center;justify-content:center;font-size:66px}
+
+.ind{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+@media(max-width:820px){.ind{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.ind{grid-template-columns:repeat(2,1fr)}}
+.icard{border:1px solid var(--line);border-radius:12px;padding:18px 12px;text-align:center;background:#fff}
+.icard .e{font-size:26px}
+.icard div{font-size:13.5px;font-weight:600;color:var(--navy);margin-top:7px}
+
+.faq{max-width:820px;margin:40px auto 0}
+.qa{border-bottom:1px solid var(--line);padding:18px 2px}
+.qa h4{font-size:16px;color:var(--navy);font-weight:700}
+.qa p{font-size:14.5px;color:var(--muted);margin-top:6px}
