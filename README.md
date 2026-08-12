@@ -18,8 +18,8 @@ Static marketing site for **Vatli** (a WhatsApp Business platform), a product of
 
 Pure static HTML + CSS — no build step, no dependencies.
 
-## Before launch — TODO
-- [ ] Replace `[Registered US address — add before launch]` with the real Ixoric Technologies LLC US address (footer of every page + `privacy.html`, `terms.html`, `contact.html`).
+## Status
+- [x] US registered address added — Ixoric Technologies LLC, 30 N Gould St, Ste R, Sheridan, WY 82801, USA.
 
 ## Deploy (Oracle VM + Nginx)
 Hosted on the same VM as the app, served by Nginx from `/var/www/vatli`.
