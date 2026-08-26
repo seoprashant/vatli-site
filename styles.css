@@ -21,11 +21,12 @@ img{max-width:100%}
 /* header */
 header{position:sticky;top:0;z-index:50;background:rgba(15,23,42,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(148,163,184,.15)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-.brand{display:flex;align-items:center;gap:9px;color:#fff}
-.brand .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--wa));display:flex;align-items:center;justify-content:center}
-.brand .mk svg{width:18px;height:18px;fill:#04140f}
-.brand .nm{font-size:20px;font-weight:800;letter-spacing:-.4px}
-.brand .nm b{color:var(--teal-l)}
+.brand{display:flex;align-items:center;color:#fff}
+/* Logo file has a solid white background (not transparent) — the
+   header/footer are dark, so the logo sits on a small white rounded
+   card rather than directly on the dark background. */
+.brand .logo-badge{background:#fff;border-radius:10px;padding:6px 12px;display:inline-flex;align-items:center;line-height:0}
+.brand .logo-img{height:26px;width:auto;display:block}
 .nav .links{display:flex;align-items:center;gap:26px}
 .nav .links a{color:#cbd5e1;font-size:14.5px;font-weight:500}
 .nav .links a:hover{color:#fff}
@@ -118,7 +119,7 @@ footer{background:#04120f;color:#94a3b8;padding:46px 0 30px;font-size:14px}
 .frow{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:26px}
 @media(max-width:820px){.frow{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.frow{grid-template-columns:1fr}}
-footer .brand .nm{font-size:19px}
+footer .brand .logo-img{height:24px}
 footer p.about{margin-top:10px;max-width:280px;color:#94a3b8}
 .flabel{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-l);font-weight:700;margin-bottom:8px}
 footer .col a,footer .col div{display:block;color:#cbd5e1;margin-bottom:6px;font-size:13.5px}
