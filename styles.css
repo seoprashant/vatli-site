@@ -188,3 +188,89 @@ footer .col a:hover{color:#fff}
 .qa{border-bottom:1px solid var(--line);padding:18px 2px}
 .qa h4{font-size:16px;color:var(--navy);font-weight:700}
 .qa p{font-size:14.5px;color:var(--muted);margin-top:6px}
+
+/* ===================================================================
+   Mobile navigation
+   The nav links were simply hidden below 840px with no replacement,
+   so on a phone there was no way to reach Features / Pricing / FAQ.
+   The toggle button and the panel's markup are injected by site.js.
+   =================================================================== */
+.navtoggle{display:none;background:transparent;border:1px solid rgba(148,163,184,.35);border-radius:9px;width:38px;height:38px;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:4px;padding:0}
+.navtoggle i{display:block;width:16px;height:2px;background:#fff;border-radius:2px;transition:.2s}
+.navtoggle[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navtoggle[aria-expanded="true"] i:nth-child(2){opacity:0}
+.navtoggle[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobnav{display:none;background:rgba(15,23,42,.98);border-top:1px solid rgba(148,163,184,.15);padding:10px 22px 18px}
+.mobnav.open{display:block}
+.mobnav a{display:block;color:#cbd5e1;font-size:15px;font-weight:500;padding:11px 0;border-bottom:1px solid rgba(148,163,184,.12)}
+.mobnav a:last-of-type{border-bottom:0}
+/* `.mobnav a{display:block}` above would otherwise beat .btn's
+   inline-flex, leaving the CTA label left-aligned. */
+.mobnav a.btn{display:flex;width:100%;justify-content:center;margin-top:12px;border-bottom:0}
+@media(max-width:840px){
+  .navtoggle{display:flex}
+  /* The trial CTA repeats inside the drawer — dropping it here stops
+     the bar becoming logo + Login + button + burger on a 375px screen. */
+  .nav .act .btn{display:none}
+}
+@media(min-width:841px){.mobnav{display:none!important}}
+
+/* ===================================================================
+   Floating WhatsApp chat widget
+   Injected by site.js on every page. Opens a real WhatsApp thread —
+   there is no server behind it, so it stays useful even if anything
+   else on the page fails.
+   =================================================================== */
+.wa-w{position:fixed;right:20px;bottom:20px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:12px;font-family:inherit}
+
+.wa-fab{position:relative;width:58px;height:58px;border-radius:50%;border:0;cursor:pointer;background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(37,211,102,.4);transition:transform .18s,box-shadow .18s}
+.wa-fab:hover{transform:scale(1.06);box-shadow:0 14px 32px rgba(37,211,102,.5)}
+.wa-fab svg{width:30px;height:30px;fill:#fff}
+/* One soft ring, drawing the eye without the strobing "notification"
+   feel that dropping a red badge on it would give. */
+.wa-fab:before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);opacity:.55;animation:wa-ring 2.6s ease-out infinite;z-index:-1}
+@keyframes wa-ring{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.55);opacity:0}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.wa-fab:before{animation:none}.wa-fab:hover{transform:none}}
+
+.wa-panel{width:326px;max-width:calc(100vw - 40px);background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(2,6,23,.26);border:1px solid var(--line);transform-origin:bottom right;animation:wa-in .18s ease-out}
+.wa-panel[hidden]{display:none}
+@keyframes wa-in{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.wa-panel{animation:none}}
+
+.wa-head{background:linear-gradient(150deg,var(--navy),#04120f);color:#fff;padding:15px 16px;display:flex;align-items:center;gap:11px}
+.wa-av{width:40px;height:40px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.wa-av svg{width:22px;height:22px;fill:#fff}
+.wa-who{flex:1;min-width:0}
+.wa-name{font-size:14.5px;font-weight:700;line-height:1.2}
+.wa-status{font-size:11.5px;color:#a7f3d0;display:flex;align-items:center;gap:5px;margin-top:3px}
+.wa-status i{width:7px;height:7px;border-radius:50%;background:#4ade80;display:block;flex:0 0 auto}
+.wa-x{background:transparent;border:0;color:#94a3b8;font-size:22px;line-height:1;cursor:pointer;padding:2px 4px;border-radius:6px}
+.wa-x:hover{color:#fff;background:rgba(255,255,255,.1)}
+
+/* Faint dot grid reads as a chat backdrop without shipping an image. */
+.wa-body{padding:18px 16px 16px;background:#f5f3ef;background-image:radial-gradient(rgba(2,6,23,.045) 1px,transparent 1px);background-size:14px 14px}
+.wa-bubble{background:#fff;border-radius:12px;border-top-left-radius:3px;padding:12px 14px;font-size:14px;color:var(--ink);line-height:1.55;box-shadow:0 1px 2px rgba(2,6,23,.09);max-width:94%}
+.wa-bubble b{color:var(--navy)}
+.wa-time{font-size:10.5px;color:var(--muted);margin-top:7px;padding-left:4px}
+
+.wa-foot{padding:13px 16px 16px;background:#fff;border-top:1px solid var(--line)}
+.wa-cta{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;font-weight:700;font-size:14.5px;border-radius:11px;padding:12px 16px;transition:.15s}
+.wa-cta:hover{background:#1eb855}
+.wa-cta svg{width:19px;height:19px;fill:#fff}
+.wa-note{text-align:center;font-size:11px;color:var(--muted);margin-top:9px}
+
+@media(max-width:520px){.wa-w{right:14px;bottom:14px}.wa-fab{width:54px;height:54px}.wa-fab svg{width:27px;height:27px}}
+
+/* ===================================================================
+   FAQ accordion
+   Progressive enhancement: without JS every answer stays visible and
+   readable (and indexable). site.js adds .acc, which is what collapses
+   them — so a JS failure degrades to the old always-open list rather
+   than hiding the content entirely.
+   =================================================================== */
+.qa.acc h4{cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;outline-offset:3px}
+.qa.acc h4:after{content:"+";flex:0 0 auto;color:var(--teal);font-size:20px;line-height:1;font-weight:700;transition:transform .2s}
+.qa.acc.open h4:after{content:"–"}
+.qa.acc h4:hover{color:var(--teal)}
+.qa.acc p{display:none}
+.qa.acc.open p{display:block}
