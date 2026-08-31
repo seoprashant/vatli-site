@@ -155,10 +155,67 @@
     });
   }
 
+  /* ---------------- header scroll state ---------------- */
+  function headerState() {
+    var header = document.querySelector('header');
+    if (!header) return;
+    var ticking = false;
+    function apply() {
+      header.classList.toggle('stuck', window.scrollY > 24);
+      ticking = false;
+    }
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(apply);
+        }
+      },
+      { passive: true }
+    );
+    apply();
+  }
+
+  /* ---------------- scroll reveal ---------------- */
+  function reveal() {
+    // Progressive enhancement: .rv (which hides the element) is only
+    // ever added here, so without JS — or without IntersectionObserver
+    // — everything simply stays visible.
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var targets = document.querySelectorAll(
+      '.fcard, .wcard, .icard, .deep, .plan, .stat, .qa'
+    );
+    if (!targets.length) return;
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '0px 0px -40px 0px', threshold: 0.05 }
+    );
+
+    targets.forEach(function (el, i) {
+      el.classList.add('rv');
+      // A small stagger within a row reads as one group animating in,
+      // rather than a dozen elements firing at the same instant.
+      el.style.transitionDelay = (i % 4) * 55 + 'ms';
+      io.observe(el);
+    });
+  }
+
   function init() {
     mobileNav();
     whatsappWidget();
     faqAccordion();
+    headerState();
+    reveal();
   }
 
   if (document.readyState === 'loading') {

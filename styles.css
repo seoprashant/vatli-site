@@ -274,3 +274,133 @@ footer .col a:hover{color:#fff}
 .qa.acc h4:hover{color:var(--teal)}
 .qa.acc p{display:none}
 .qa.acc.open p{display:block}
+
+/* ===================================================================
+   DESIGN PASS
+   Three things were making this read as a template rather than a
+   product site: emoji standing in for icons, the default system font,
+   and giant emoji used as "product visuals". This section replaces all
+   three.
+   =================================================================== */
+
+/* --- typography -------------------------------------------------- */
+/* Inter, the same face the app uses, so the site and the product read
+   as one brand. Loaded with display=swap; the previous system stack
+   stays as the fallback so text renders immediately either way. */
+body{font-family:"Inter",-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-feature-settings:"cv02","cv03","cv04","cv11";letter-spacing:-.005em}
+h1,h2,h3,h4,.stat .n,.plan .amt{letter-spacing:-.03em}
+.hero h1{letter-spacing:-.035em}
+
+/* --- icon system ------------------------------------------------- */
+/* One <symbol> sprite per page, referenced with <use>. Stroke-based
+   and inheriting currentColor, so a card's accent colour drives its
+   icon without a second asset. */
+.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;display:block}
+.i-sm{width:18px;height:18px}
+.i-lg{width:26px;height:26px}
+
+/* --- feature cards ----------------------------------------------- */
+.fcard{position:relative;overflow:hidden}
+.fcard .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;margin-bottom:14px;transition:.18s}
+.fcard:hover .ic{transform:scale(1.06)}
+.fcard h3{letter-spacing:-.02em}
+/* A hairline of the card's accent along the top edge, revealed on
+   hover — enough colour to tell the categories apart without turning
+   the grid into a paint chart. */
+.fcard:after{content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:currentColor;opacity:0;transition:opacity .18s}
+.fcard:hover:after{opacity:1}
+
+/* Accent palette. Each tone sets the card's `color`, which the icon
+   chip and the top hairline both inherit. */
+.t-teal{color:#0d9488}   .t-teal   .ic{background:rgba(13,148,136,.11)}
+.t-blue{color:#2563eb}   .t-blue   .ic{background:rgba(37,99,235,.1)}
+.t-violet{color:#7c3aed} .t-violet .ic{background:rgba(124,58,237,.1)}
+.t-amber{color:#d97706}  .t-amber  .ic{background:rgba(217,119,6,.12)}
+.t-rose{color:#e11d48}   .t-rose   .ic{background:rgba(225,29,72,.1)}
+.t-cyan{color:#0891b2}   .t-cyan   .ic{background:rgba(8,145,178,.11)}
+.t-green{color:#16a34a}  .t-green  .ic{background:rgba(22,163,74,.11)}
+.t-indigo{color:#4f46e5} .t-indigo .ic{background:rgba(79,70,229,.1)}
+
+/* --- why / industries / contact cards ---------------------------- */
+.wcard .ic,.icard .e,.ccard .ic{display:flex;align-items:center;justify-content:center}
+.wcard .ic{width:40px;height:40px;border-radius:11px;background:rgba(13,148,136,.11);color:var(--teal);margin-bottom:10px}
+.icard .e{width:42px;height:42px;border-radius:12px;background:rgba(13,148,136,.09);color:var(--teal);margin:0 auto}
+.icard{transition:.18s}
+.icard:hover{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 10px 24px rgba(2,6,23,.07)}
+.ccard .ic{width:44px;height:44px;border-radius:12px;background:rgba(13,148,136,.11);color:var(--teal);margin-bottom:4px}
+
+/* --- deep-dive product visuals ----------------------------------- */
+/* Replaces a 66px emoji in a gradient box. These are small, honest
+   mock-ups of the actual screens, built in CSS — no image assets, and
+   they scale crisply. */
+.deep .vis{background:linear-gradient(160deg,#f8fafc,#f0fdfa);border:1px solid var(--line);
+  border-radius:18px;padding:20px;min-height:230px;display:flex;flex-direction:column;
+  justify-content:center;gap:10px;font-size:inherit;box-shadow:inset 0 1px 0 #fff}
+.mk{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 13px;
+  box-shadow:0 2px 6px rgba(2,6,23,.05)}
+.mk-h{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:var(--navy)}
+.mk-h .i{width:15px;height:15px;color:var(--teal)}
+.mk-s{font-size:11px;color:var(--muted);margin-top:3px}
+.mk-bar{height:7px;border-radius:99px;background:#e2e8f0;overflow:hidden;margin-top:9px}
+.mk-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),#34d399);border-radius:99px}
+.mk-row{display:flex;gap:8px;margin-top:9px}
+.mk-pill{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:99px;background:rgba(13,148,136,.1);color:var(--teal)}
+.mk-pill.b{background:rgba(37,99,235,.1);color:#2563eb}
+.mk-pill.a{background:rgba(217,119,6,.13);color:#b45309}
+
+/* kanban mock */
+.mk-kan{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mk-col{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 8px}
+.mk-col .t{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:7px}
+.mk-card{background:#f8fafc;border:1px solid var(--line);border-radius:7px;padding:7px 8px;margin-bottom:6px}
+.mk-card .n{font-size:10.5px;font-weight:700;color:var(--navy)}
+.mk-card .v{font-size:10px;color:var(--teal);font-weight:700}
+
+/* flow chain mock */
+.mk-flow{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.mk-node{background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 11px;
+  font-size:11.5px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:6px;
+  box-shadow:0 2px 5px rgba(2,6,23,.05)}
+.mk-node .i{width:14px;height:14px}
+.mk-node.on{border-color:var(--teal);color:var(--teal)}
+.mk-arw{color:#cbd5e1;font-weight:700;font-size:13px}
+
+/* chat mock */
+.mk-chat{display:flex;flex-direction:column;gap:7px}
+.mk-msg{max-width:82%;padding:8px 11px;border-radius:12px;font-size:11.5px;line-height:1.5}
+.mk-msg.in{background:#fff;border:1px solid var(--line);border-top-left-radius:3px;color:var(--ink)}
+.mk-msg.out{background:#d9fdd3;border-top-right-radius:3px;align-self:flex-end;color:#0f3d2e}
+.mk-typing{font-size:10.5px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.mk-typing i{width:5px;height:5px;border-radius:50%;background:var(--teal);display:block;animation:mk-dot 1.2s infinite}
+.mk-typing i:nth-child(2){animation-delay:.2s} .mk-typing i:nth-child(3){animation-delay:.4s}
+@keyframes mk-dot{0%,60%,100%{opacity:.25}30%{opacity:1}}
+
+/* code mock */
+.mk-code{background:#0b1220;border-radius:11px;padding:13px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.75;color:#94a3b8;overflow:hidden}
+.mk-code .k{color:#5eead4} .mk-code .s{color:#fca5a5} .mk-code .c{color:#475569}
+
+@media(prefers-reduced-motion:reduce){
+  .mk-typing i{animation:none;opacity:.6}
+  .fcard:hover .ic,.icard:hover{transform:none}
+}
+
+/* --- header scroll state ----------------------------------------- */
+/* Transparent-ish over the dark hero, solid once you scroll past it,
+   so the nav never floats ambiguously over light sections. */
+header{transition:background .2s,box-shadow .2s}
+header.stuck{background:rgba(15,23,42,.98);box-shadow:0 6px 24px rgba(2,6,23,.28)}
+
+/* --- scroll reveal ------------------------------------------------ */
+/* Applied by site.js only — no JS means everything is simply visible,
+   never a blank page. */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .5s ease-out,transform .5s ease-out}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* --- focus visibility -------------------------------------------- */
+a:focus-visible,button:focus-visible,.qa.acc h4:focus-visible{
+  outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
