@@ -1,6 +1,6 @@
 # Vatli — Marketing Website
 
-Static marketing site for **Vatli** (a WhatsApp Business platform), a product of **Ixoric Technologies LLC**.
+Static marketing site for **Vatli** (a WhatsApp Business platform), a product of **IXORIC TECHNOLOGIES LLP** (India).
 
 - **Live at:** https://vatli.co
 - **App (separate repo):** https://app.vatli.co · `ixoric-saas-waapi`
@@ -13,13 +13,15 @@ Static marketing site for **Vatli** (a WhatsApp Business platform), a product of
 | `contact.html` | Contact Us |
 | `privacy.html` | Privacy Policy (GDPR + CCPA) |
 | `terms.html` | Terms of Service |
+| `data-deletion.html` | Data deletion instructions (Meta app setting) |
 | `do-not-sell.html` | Do Not Sell My Personal Information (CCPA) |
 | `styles.css` | Shared styles for all pages |
 
 Pure static HTML + CSS — no build step, no dependencies.
 
 ## Status
-- [x] US registered address added — Ixoric Technologies LLC, 30 N Gould St, Ste R, Sheridan, WY 82801, USA.
+- [x] Operator: IXORIC TECHNOLOGIES LLP (India, GSTIN 10AAKFI2351Q1ZA), the business verified with Meta. Address: Ground, Madan Mahal-22, Hajipur, Village Purwa, Bishnupur Bala Dhari urf Balwa, Purwa Shiv Mandir, Chandralay, Vaishali, Bihar 844102, India.
+- [x] Subscription payments: Stripe account of the US affiliate, Ixoric Technologies LLC.
 
 ## Deploy (Oracle VM + Nginx)
 Hosted on the same VM as the app, served by Nginx from `/var/www/vatli`.
@@ -39,4 +41,4 @@ sudo certbot --nginx -d vatli.co
 To update the site later: edit files → commit → push → on the VM `git pull` (or re-upload).
 
 ---
-© Ixoric Technologies LLC. WhatsApp is a trademark of Meta Platforms, Inc. Vatli is not affiliated with or endorsed by Meta.
+© IXORIC TECHNOLOGIES LLP. WhatsApp is a trademark of Meta Platforms, Inc. Vatli is not affiliated with or endorsed by Meta.
