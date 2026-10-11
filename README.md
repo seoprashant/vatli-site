@@ -20,7 +20,7 @@ Static marketing site for **Vatli** (a WhatsApp Business platform), a product of
 Pure static HTML + CSS — no build step, no dependencies.
 
 ## Status
-- [x] Operator: IXORIC TECHNOLOGIES LLP (India, GSTIN 10AAKFI2351Q1ZA), the business verified with Meta. Address: Ground, Madan Mahal-22, Hajipur, Village Purwa, Bishnupur Bala Dhari urf Balwa, Purwa Shiv Mandir, Chandralay, Vaishali, Bihar 844102, India.
+- [x] Operator: IXORIC TECHNOLOGIES LLP, the business verified with Meta. Public address on the site: Ixoric Technologies LLC, 30 N Gould St, Ste R, Sheridan, WY 82801, USA.
 - [x] Subscription payments: Stripe account of the US affiliate, Ixoric Technologies LLC.
 
 ## Deploy (Oracle VM + Nginx)
