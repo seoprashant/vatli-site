@@ -1,6 +1,6 @@
 # Vatli — Marketing Website
 
-Static marketing site for **Vatli** (a WhatsApp Business platform), a product of **IXORIC TECHNOLOGIES LLP** (India).
+Static marketing site for **Vatli** (a WhatsApp Business platform), a product of **IXORIC TECHNOLOGIES LLP**.
 
 - **Live at:** https://vatli.co
 - **App (separate repo):** https://app.vatli.co · `ixoric-saas-waapi`
