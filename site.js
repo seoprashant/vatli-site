@@ -250,3 +250,29 @@
     });
   });
 })();
+
+
+// Legal pages: highlight the section being read in the contents list,
+// and on phones start the list collapsed so the policy text comes first.
+(function () {
+  var toc = document.querySelector('.lg-toc');
+  if (!toc) return;
+  if (window.matchMedia('(max-width: 860px)').matches) {
+    toc.querySelector('details').removeAttribute('open');
+  }
+  if (!('IntersectionObserver' in window)) return;
+  var links = {};
+  toc.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    links[a.getAttribute('href').slice(1)] = a;
+  });
+  var current = null;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      if (current) current.classList.remove('on');
+      current = links[e.target.id];
+      if (current) current.classList.add('on');
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  document.querySelectorAll('.lg-body h2[id]').forEach(function (h) { io.observe(h); });
+})();
