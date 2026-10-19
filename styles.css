@@ -540,3 +540,38 @@ a:focus-visible,button:focus-visible,.qa.acc h4:focus-visible{
   .final h2{font-size:30px}
 }
 .ab-hero h1 .g{display:block}
+
+/* ===================================================================
+   Contact page (reuses .ab-hero and .ab-panel from About)
+   =================================================================== */
+.ct-hero{padding-bottom:110px}
+.ct-main{margin-top:-70px;padding-bottom:74px}
+.ct-wa{display:flex;align-items:center;gap:22px;background:#fff;border:1px solid rgba(37,211,102,.45);border-radius:18px;padding:26px 28px;box-shadow:0 18px 40px rgba(2,6,23,.12)}
+.ct-wa-ic{flex:none;width:58px;height:58px;border-radius:16px;background:rgba(37,211,102,.14);color:#16a34a;display:flex;align-items:center;justify-content:center}
+.ct-wa-txt{flex:1;min-width:0}
+.ct-wa h2{font-size:24px;margin-top:6px}
+.ct-wa p{color:var(--muted);font-size:15px;margin-top:4px}
+.ct-badge{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#15803d;background:rgba(37,211,102,.14);border-radius:999px;padding:3px 10px}
+.btn-wa{background:#16a34a;color:#fff;flex:none}
+.btn-wa:hover{background:#15803d}
+.btn-wa .i{color:#fff}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.ct-card{display:block;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;transition:.15s}
+.ct-card:hover{box-shadow:0 12px 30px rgba(2,6,23,.08);transform:translateY(-2px);border-color:currentColor}
+.ct-card .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.ct-card h3{font-size:17px;color:var(--navy);font-weight:700}
+.ct-card p{font-size:14.5px;color:var(--muted);margin-top:4px}
+.ct-link{display:inline-block;margin-top:12px;font-weight:700;font-size:14.5px}
+.ct-card:focus-visible,.ct-wa .btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+.ct-two{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:18px}
+.ct-row{display:flex;gap:14px;align-items:flex-start}
+.ct-row+.ct-row{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+.ct-row>.i{flex:none;color:var(--teal);margin-top:2px}
+.ct-row h3{font-size:16px;color:var(--navy)}
+.ct-row p{font-size:14.5px;color:var(--ink);margin-top:4px;line-height:1.6}
+.ct-row .ct-note{color:var(--muted);font-size:13.5px;margin-top:10px}
+@media(prefers-reduced-motion:reduce){.ct-card:hover{transform:none}}
+@media(max-width:900px){.ct-two{grid-template-columns:1fr}}
+@media(max-width:760px){.ct-grid{grid-template-columns:1fr}}
+@media(max-width:720px){.ct-wa{flex-direction:column;align-items:flex-start;padding:22px}.ct-wa .btn{width:100%;justify-content:center}}
+@media(max-width:560px){.ct-main{margin-top:-60px}.ct-hero{padding-bottom:90px}}
