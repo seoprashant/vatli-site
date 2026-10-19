@@ -468,3 +468,19 @@ a:focus-visible,button:focus-visible,.qa.acc h4:focus-visible{
 /* Hero numbers sit beside the phone on wide screens: size to content so
    "1 number" never breaks across two lines. */
 @media(min-width:980px){.hero-copy .stats{grid-template-columns:repeat(4,auto);justify-content:start;column-gap:34px}.hero-copy .stat .n{white-space:nowrap}}
+
+/* ===================================================================
+   Pricing: monthly / yearly switch, popular plan first on phones,
+   reassurance under the plans.
+   =================================================================== */
+.bill{display:inline-flex;gap:4px;margin-top:22px;padding:4px;border:1px solid var(--line);border-radius:999px;background:#fff}
+.bill button{border:0;background:transparent;border-radius:999px;padding:9px 16px;font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:40px}
+.bill button[aria-checked="true"]{background:var(--navy);color:#fff}
+.bill .save{font-size:11.5px;font-weight:700;color:var(--teal);background:rgba(13,148,136,.12);border-radius:999px;padding:2px 8px}
+.bill button[aria-checked="true"] .save{color:#5eead4;background:rgba(94,234,212,.15)}
+.bill button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.plan .amt{transition:opacity .15s}
+@media(max-width:520px){.pgrid .plan.pop{order:-1}}
+.assure{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin:28px auto 0;padding:0;max-width:880px}
+.assure li{display:flex;align-items:center;gap:7px;color:var(--navy);font-size:14px;font-weight:600}
+.assure .i{width:18px;height:18px;color:var(--teal);stroke-width:2.5}

@@ -225,3 +225,28 @@
     init();
   }
 })();
+
+// Pricing: switch the paid plans between monthly and yearly prices.
+// Each price carries both in data-m / data-y; the page shows monthly
+// until a visitor picks yearly.
+(function () {
+  var toggle = document.querySelector('.bill');
+  if (!toggle) return;
+  var buttons = toggle.querySelectorAll('[data-bill]');
+  function show(period) {
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-checked', String(b.getAttribute('data-bill') === period));
+    });
+    document.querySelectorAll('.plan .amt[data-m]').forEach(function (el) {
+      el.innerHTML = el.getAttribute('data-' + period) + '<small>/mo</small>';
+    });
+    document.querySelectorAll('.plan .yr[data-m]').forEach(function (el) {
+      el.textContent = el.getAttribute('data-' + period);
+    });
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      show(b.getAttribute('data-bill'));
+    });
+  });
+})();

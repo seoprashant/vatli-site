@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20261019">
+<link rel="stylesheet" href="/styles.css?v=20261019b">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -60,6 +60,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
 <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
 <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
 <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
 </defs></svg>
 
@@ -389,7 +390,13 @@ Authorization: Bearer <span class="k">vatli_live_…</span><br><br>
   <div class="wrap center">
     <div class="eyebrow">Simple, Transparent Pricing</div>
     <h2>Plans that grow with you</h2>
-    <p class="lead">All prices in USD. 14-day free trial on every plan. No setup cost. Save ~2 months by paying yearly.</p>
+    <p class="lead">All prices in USD. 14-day free trial on every plan. No setup cost.</p>
+    <!-- Monthly / yearly switch (site.js). Without script the monthly
+         prices and the yearly line under each stay as they are. -->
+    <div class="bill" role="radiogroup" aria-label="Billing period">
+      <button type="button" role="radio" aria-checked="true" data-bill="m">Monthly</button>
+      <button type="button" role="radio" aria-checked="false" data-bill="y">Yearly <span class="save">2 months free</span></button>
+    </div>
   </div>
   <div class="wrap"><div class="pgrid">
     <div class="plan"><h3>Free Trial</h3><div class="d">Try everything, risk-free.</div>
@@ -397,11 +404,11 @@ Authorization: Bearer <span class="k">vatli_live_…</span><br><br>
       <ul><li>Full Pro features</li><li>1 WhatsApp number</li><li>1 admin + 1 agent seat</li><li>All automations &amp; AI</li><li class="off">Priority support</li></ul>
       <a class="btn btn-dark" href="https://app.vatli.co/login">Start Free</a></div>
     <div class="plan pop"><span class="bdg">Most Popular</span><h3>Pro</h3><div class="d">For growing teams running WhatsApp at scale.</div>
-      <div class="amt">$9.99<small>/mo</small></div><div class="yr">or $99.99/yr — 2 months free</div>
+      <div class="amt" data-m="$9.99" data-y="$8.33">$9.99<small>/mo</small></div><div class="yr" data-m="or $99.99/yr — 2 months free" data-y="billed $99.99 yearly — you save $19.89">or $99.99/yr — 2 months free</div>
       <ul><li>1 admin + 1 agent seat</li><li>Unlimited contacts</li><li>15,000 broadcast messages/mo</li><li>AI, automations &amp; flows</li><li>API &amp; webhooks</li><li class="off">Priority support</li></ul>
       <a class="btn btn-primary" href="https://app.vatli.co/login">Start Free Trial</a></div>
     <div class="plan"><h3>Business</h3><div class="d">For established teams needing more volume.</div>
-      <div class="amt">$24.99<small>/mo</small></div><div class="yr">or $249.99/yr — 2 months free</div>
+      <div class="amt" data-m="$24.99" data-y="$20.83">$24.99<small>/mo</small></div><div class="yr" data-m="or $249.99/yr — 2 months free" data-y="billed $249.99 yearly — you save $49.89">or $249.99/yr — 2 months free</div>
       <ul><li>2 admin + 5 agent seats</li><li>Unlimited contacts</li><li>50,000 broadcast messages/mo</li><li>AI, automations &amp; flows</li><li>API &amp; webhooks</li><li>Priority support</li></ul>
       <a class="btn btn-dark" href="https://app.vatli.co/login">Start Free Trial</a></div>
     <div class="plan"><h3>Enterprise</h3><div class="d">For high-volume &amp; custom needs.</div>
@@ -409,7 +416,13 @@ Authorization: Bearer <span class="k">vatli_live_…</span><br><br>
       <ul><li>Everything in Business</li><li>Custom volumes</li><li>Multiple numbers</li><li>Dedicated onboarding</li><li>SLA &amp; account manager</li></ul>
       <a class="btn btn-dark" href="/contact">Contact Sales</a></div>
   </div>
-  <p class="center" style="margin-top:22px;color:var(--muted);font-size:13px">✓ No setup cost &nbsp;·&nbsp; ✓ 24/7 support &nbsp;·&nbsp; ✓ Cancel anytime. WhatsApp conversation charges are billed separately by Meta and vary by country.</p>
+  <ul class="assure">
+    <li><svg class="i"><use href="#i-check"/></svg> No setup cost — we help you set up</li>
+    <li><svg class="i"><use href="#i-check"/></svg> Cancel anytime</li>
+    <li><svg class="i"><use href="#i-check"/></svg> No markup on Meta's message fees</li>
+    <li><svg class="i"><use href="#i-check"/></svg> 24/7 support on WhatsApp &amp; email</li>
+  </ul>
+  <p class="center" style="margin-top:14px;color:var(--muted);font-size:12.5px">WhatsApp message fees are charged by Meta at cost and vary by country — each number gets 1,000 free customer-service replies a month.</p>
   </div>
 </section>
 
@@ -465,6 +478,6 @@ Authorization: Bearer <span class="k">vatli_live_…</span><br><br>
   </div>
 </footer>
 
-<script src="/site.js?v=20261019" defer></script>
+<script src="/site.js?v=20261019b" defer></script>
 </body>
 </html>
