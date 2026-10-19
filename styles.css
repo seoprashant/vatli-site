@@ -209,9 +209,11 @@ footer .col a:hover{color:#fff}
 .mobnav a.btn{display:flex;width:100%;justify-content:center;margin-top:12px;border-bottom:0}
 @media(max-width:840px){
   .navtoggle{display:flex}
-  /* The trial CTA repeats inside the drawer — dropping it here stops
-     the bar becoming logo + Login + button + burger on a 375px screen. */
-  .nav .act .btn{display:none}
+  /* Phones: the trial button stays in the bar (it's the one thing the
+     page asks for) and Login moves into the drawer, so the bar stays
+     logo + button + burger on a 375px screen. */
+  .nav .act .login{display:none}
+  .nav .act .btn{padding:8px 13px;font-size:13.5px}
 }
 @media(min-width:841px){.mobnav{display:none!important}}
 
@@ -404,3 +406,65 @@ header.stuck{background:rgba(15,23,42,.98);box-shadow:0 6px 24px rgba(2,6,23,.28
 /* --- focus visibility -------------------------------------------- */
 a:focus-visible,button:focus-visible,.qa.acc h4:focus-visible{
   outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+/* ===================================================================
+   Hero chat preview — what a customer sees, so the page shows the
+   product instead of only describing it. Bubbles appear one by one
+   (skipped under reduced motion).
+   =================================================================== */
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:980px){.hero-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr)}}
+.hero-vis{position:relative;display:flex;justify-content:center}
+.phone{width:300px;max-width:100%;border-radius:30px;background:#0b141a;border:8px solid #1e293b;box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 1px rgba(94,234,212,.15);overflow:hidden}
+.ph-top{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#202c33}
+.ph-av{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:14px}
+.ph-name{display:flex;flex-direction:column;color:#e9edef;font-weight:700;font-size:14px;line-height:1.15}
+.ph-name small{color:#8696a0;font-weight:500;font-size:11px}
+.ph-chat{padding:14px 12px 10px;display:flex;flex-direction:column;gap:8px;min-height:310px;background:#0b141a radial-gradient(circle at 20% 20%,rgba(255,255,255,.03),transparent 45%)}
+.b{max-width:84%;padding:7px 10px 18px;border-radius:10px;font-size:13px;line-height:1.35;color:#e9edef;position:relative;opacity:0;transform:translateY(6px);animation:bin .35s ease-out forwards;animation-delay:var(--d,0s)}
+.b.in{background:#202c33;align-self:flex-start;border-top-left-radius:3px}
+.b.out{background:#005c4b;align-self:flex-end;border-top-right-radius:3px}
+.b .t{position:absolute;right:8px;bottom:4px;font-size:10px;color:rgba(233,237,239,.6)}
+.b.out .t{color:#53bdeb}
+.ph-btns{display:flex;flex-direction:column;margin:8px -10px -12px;border-top:1px solid rgba(255,255,255,.12)}
+.ph-btns span{text-align:center;color:#53bdeb;font-weight:600;font-size:12.5px;padding:7px 0}
+.ph-btns span+span{border-top:1px solid rgba(255,255,255,.12)}
+.ph-bar{padding:10px 12px;background:#0b141a}
+.ph-bar span{display:block;background:#2a3942;border-radius:20px;padding:8px 14px;color:#8696a0;font-size:12.5px}
+.ph-tag{position:absolute;display:flex;align-items:center;gap:6px;background:#fff;color:var(--navy);font-weight:700;font-size:12.5px;padding:8px 12px;border-radius:12px;box-shadow:0 14px 30px rgba(2,6,23,.3);opacity:0;animation:bin .4s ease-out forwards;animation-delay:var(--d,0s)}
+.ph-tag .i{width:15px;height:15px;color:var(--teal)}
+/* Floating beside the phone on wide screens; a row beneath it on
+   narrower ones, where floating tags would cover the chat. */
+.ph-tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.ph-tags .ph-tag{position:static}
+@media(min-width:980px){
+  .hero-vis{flex-direction:column}
+  .ph-tags{display:contents}
+  .ph-tags .ph-tag{position:absolute}
+  .ph-tag.t1{top:34%;left:-6px}
+  .ph-tag.t2{bottom:14%;right:-6px}
+}
+.hero-vis{flex-direction:column;align-items:center}
+/* Phones: the chat comes right after the buttons, before the numbers. */
+@media(max-width:979px){
+  .hero-copy{display:contents}
+  .hero-grid{gap:0}
+  .hero-grid > .hero-copy > *{order:0}
+  .hero-vis{order:1;margin-top:34px}
+  .hero-copy .stats{order:2}
+}
+@keyframes bin{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.b,.ph-tag{animation:none;opacity:1;transform:none}}
+
+/* Phones: two features per row, shorter cards — 18 full-width cards
+   made the list about 3,000px long. */
+@media(max-width:560px){
+  .fgrid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .fcard{padding:14px}
+  .fcard .ic{width:34px;height:34px;margin-bottom:9px}
+  .fcard h3{font-size:14.5px;line-height:1.25}
+  .fcard p{font-size:12.5px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+}
+/* Hero numbers sit beside the phone on wide screens: size to content so
+   "1 number" never breaks across two lines. */
+@media(min-width:980px){.hero-copy .stats{grid-template-columns:repeat(4,auto);justify-content:start;column-gap:34px}.hero-copy .stat .n{white-space:nowrap}}

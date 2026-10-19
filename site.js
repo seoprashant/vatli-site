@@ -33,6 +33,7 @@
     // desktop menu, then append the CTA the header shows separately.
     panel.innerHTML =
       links.innerHTML +
+      '<a href="https://app.vatli.co/login">Login</a>' +
       '<a class="btn btn-primary" href="https://app.vatli.co/login">Start Free Trial</a>';
 
     nav.appendChild(toggle);
