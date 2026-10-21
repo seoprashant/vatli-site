@@ -87,6 +87,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><b>Account data</b> — name, email, password (stored hashed), business name, and role.</li>
     <li><b>Billing data</b> — plan selection and payment details. Card details are handled by our payment processor (Stripe); we do not store full card numbers.</li>
     <li><b>WhatsApp connection data</b> — your WhatsApp Business phone number ID, WhatsApp Business Account ID, and access tokens you authorize, which are stored encrypted.</li>
+    <li><b>Two-step login</b> — if you turn it on, the secret for your authenticator app is held by our authentication provider (Supabase). We never see the 6-digit codes.</li>
   </ul>
   <h3>b) Customer messaging content (processed on your behalf)</h3>
   <p>When you connect a WhatsApp number, we process the messages, contacts, and media that flow through your account so we can display your inbox, build contact profiles, run automations, and provide analytics. For this content, you are the data controller and Vatli acts as a data processor on your behalf under our Terms.</p>
@@ -98,7 +99,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><b>Notifications</b> — a push token for your device, so we can tell you about new messages, chats assigned to you and mentions. It is deleted when you sign out.</li>
   </ul>
   <p>The app does not collect your location, does not use an advertising ID, and contains no advertising. Data between the app and our servers is encrypted in transit.</p>
-  <h3>d) Information collected automatically</h3>
+  <h3>d) Data from tools you connect (processed on your behalf)</h3>
+  <p>Only if you connect them, and only to run the feature you switched on:</p>
+  <ul>
+    <li><b>Store and payment tools</b> (Shopify, WooCommerce, Razorpay, PayU) — the customer’s name, phone number, email and order or payment details (order number, items, amount, status) sent to us by your store’s webhooks. We never receive card numbers.</li>
+    <li><b>HubSpot and Google Sheets</b> — the contacts, deals, meetings or sheet rows you choose to sync, and the access tokens you authorize (stored encrypted).</li>
+    <li><b>Click-to-WhatsApp ads</b> — the ad details Meta attaches to a chat that started from an ad.</li>
+    <li><b>Website chat widget</b> — the name, phone number and messages a visitor enters in the widget on your website.</li>
+  </ul>
+  <p>For this data, as for message content, you are the data controller and Vatli acts as your processor.</p>
+  <h3>e) Information collected automatically</h3>
   <ul>
     <li><b>Usage &amp; device data</b> — log data, IP address, browser type, and actions taken in the app, used for security and to improve the Service.</li>
     <li><b>Cookies</b> — strictly-necessary cookies for authentication and session security. We do not use advertising cookies.</li>
@@ -113,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li>To send essential service and account notifications.</li>
     <li>To comply with legal obligations and enforce our Terms.</li>
   </ul>
-  <p>We do not use your customers’ message content for advertising, and we do not use it to train third-party AI models. Optional AI features run only on the data you explicitly send them, using a provider key you configure.</p>
+  <p>We do not use your customers’ message content for advertising, and we do not use it to train third-party AI models. AI features (AI drafts, auto-reply, AI tools) are off until you switch them on. When they are on, the conversation and the business knowledge you added are sent to the AI model provider only to write the reply.</p>
 
   <h2 id="sharing-sub-processors"><span class="n">4</span>Sharing &amp; sub-processors</h2>
   <p>We share data only with the following categories of service providers, strictly to run the Service:</p>
@@ -122,7 +132,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><b>Stripe, Inc.</b> — to securely process payments.</li>
     <li><b>Supabase</b> — managed database and authentication infrastructure.</li>
     <li><b>Oracle Cloud Infrastructure</b> — secure cloud hosting of the application.</li>
-    <li>AI providers (only if you enable AI features with your own key).</li>
+    <li><b>AI model providers</b> — Google (Gemini) by default, and OpenAI or Anthropic only if your workspace is set up to use them — to run AI features you switch on. They process the data only to return a result.</li>
+    <li><b>Tools and addresses you connect</b> — HubSpot, Google, your store or payment provider, and any webhook, API campaign or AI-tool address you add receive the data that feature needs, because you asked us to send it there.</li>
+    <li><b>Meta Conversions API</b> — only if you switch on ad conversion reporting: the ad click ID of a chat and the event you choose (for example a won deal and its value). No phone numbers or message content.</li>
     <li><b>Google Firebase Cloud Messaging</b> and <b>Expo</b> — to deliver notifications to the mobile app and to deliver app updates.</li>
   </ul>
   <p>We may also disclose information if required by law, to protect our rights, or in connection with a business transfer. <b>We never sell personal information to third parties.</b></p>
@@ -140,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p>No method of transmission or storage is 100% secure, but we work continuously to protect your information.</p>
 
   <h2 id="data-retention"><span class="n">6</span>Data retention</h2>
-  <p>We retain account and message data for as long as your account is active. When you delete data or close your account, we delete or anonymize associated personal data within a reasonable period, except where retention is required by law (e.g., financial records).</p>
+  <p>We retain account and message data for as long as your account is active. When you delete data or close your account, we delete or anonymize associated personal data within 30 days, except where retention is required by law (e.g., invoices and payment records, kept for as long as tax law requires). Our encrypted database backups are kept for 14 days, so deleted data leaves the backups within 14 days after that. Push tokens are deleted when you sign out of the app.</p>
 
   <h2 id="data-deletion"><span class="n">6a</span>How to delete your data</h2>
   <p>You can ask us to delete your account and its data at any time, including data received through Facebook Login or the WhatsApp Business Platform. Step-by-step instructions are on our <a href="/data-deletion">Data Deletion</a> page.</p>
